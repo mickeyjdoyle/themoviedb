@@ -1,0 +1,23 @@
+<div class="feature-wrapper">
+  <div class="feature">
+    <ul>
+      <li ng-repeat="img in images | filter:{backdrop_path: ''}">
+        <div class="feature-item">
+          <div class="row">
+            <div class="col-xs-5 feature-info">
+              <h1>{{img.title}} ({{img.release_date | date : 'yyyy' }})</h1>
+              <p>{{img.overview}}</p>
+              <star-rating max="10" rating="img.vote_average"></star-rating>
+            </div>
+            <div class="col-xs-7 feature-image">
+              <img ng-src="http://image.tmdb.org/t/p/original{{img.backdrop_path}}"/>
+              <div class="gradiant-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <a href="javascript:void(0)" class="feature-control-prev"><i class="fa fa-chevron-left"></i></a>
+  <a href="javascript:void(0)" class="feature-control-next"><i class="fa fa-chevron-right"></i></a>
+</div>

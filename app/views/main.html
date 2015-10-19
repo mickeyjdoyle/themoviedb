@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <!--
+  <ul id="popular" class="poster-carousel">
+  <li ng-repeat="movie in popular.results" class="col-xs-3" style="padding:0;">
+    <img ng-src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" style="width:100%;"/>
+  </li>
+  </ul>
+  -->
+  <carousel-feature images="popular.results"></carousel-feature>
+  <h2>MOST POPULAR</h2>
+  <carousel images="popular.results"></carousel>
+  <h2>UPCOMING</h2>
+  <carousel-backdrop images="upcoming.results"></carousel-backdrop>
+</div>

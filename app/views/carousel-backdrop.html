@@ -1,0 +1,18 @@
+<div class="jcarousel-wrapper">
+  <div class="jcarousel jcarousel-wide">
+    <ul>
+      <li ng-repeat="img in images | filter:{backdrop_path: ''}">
+        <div class="carousel-item">
+          <a href="#/detail/{{img.id}}">
+            <img ng-src="http://image.tmdb.org/t/p/w300{{img.backdrop_path}}"/>
+            <div class="carousel-info">
+              {{img.title}}
+            </div>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <a href="javascript:void(0)" class="jcarousel-control-prev"><i class="fa fa-chevron-left"></i></a>
+  <a href="javascript:void(0)" class="jcarousel-control-next"><i class="fa fa-chevron-right"></i></a>
+</div>

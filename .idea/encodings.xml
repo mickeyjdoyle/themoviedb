@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/scripts/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/detail.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/styles/jcarousel.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/carousel-backdrop.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/carousel-feature.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/carousel-feature2.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/carousel-poster.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/detail.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/main.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/star-rating.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bower.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/spec/controllers/main.js" charset="UTF-8" />
+  </component>
+</project>

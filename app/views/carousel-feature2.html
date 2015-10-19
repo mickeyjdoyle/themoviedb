@@ -1,0 +1,40 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <ol class="carousel-indicators">
+      <li ng-repeat="img in images | filter:{backdrop_path: '' | limitTo : 5}" ng-class="{'active':!$index}" data-target="#myCarousel" data-slide-to="{{$index}}"></li>
+    </ol>
+
+    <div class="item" ng-repeat="img in images | filter:{backdrop_path: '' | limitTo : 5}" ng-class="{'active':!$index}">
+        <div class="detail-header">
+          <div class="row">
+            <div class="col-xs-5 feature-info">
+              <h1>{{img.title}} ({{img.release_date | date : 'yyyy' }})</h1>
+              <p>{{img.overview}}</p>
+              <star-rating max="10" rating="img.vote_average"></star-rating>
+            </div>
+            <div class="col-xs-7 detail-image">
+              <img ng-src="http://image.tmdb.org/t/p/original{{img.backdrop_path}}"/>
+              <div class="gradiant-overlay"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <span class="left carousel-control" data-target="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+  </span>
+  <span class="right carousel-control" data-target="#carousel-example-generic" data-slide="next">
+     <span class="glyphicon glyphicon-chevron-right"></span>
+  </span>
+
+</div>
