@@ -1,0 +1,17 @@
+<div>
+  <h1>{{movie.title}} </h1>
+
+  <p>{{movie.overview}}</p>
+
+  <p>
+    <star-rating max="10" rating="movie.vote_average"></star-rating>
+    ({{movie.release_date | date : 'yyyy' }})
+    <span class="detail-cert">{{certification}}</span>
+    {{movie.runtime | formatTime}}
+  </p>
+  <div class="detail-cast">
+    <p>Staring: <span ng-repeat="cast in movie.credits.cast | filter: lessThan('order',3)"><span class="detail-comma" ng-if="$index != 0">, </span>{{cast.name}}</span> </p>
+    <p>Director: <span ng-repeat="cast in movie.credits.crew | filter: {job:'Director'} : true"><span class="detail-comma" ng-if="$index != 0">, </span>{{cast.name}}</span> </p>
+    <p>Genres: <span ng-repeat="genre in movie.genres"><span class="detail-comma" ng-if="$index != 0">, </span>{{genre.name}}</span> </p>
+  </div>
+</div>
