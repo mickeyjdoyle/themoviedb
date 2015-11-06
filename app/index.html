@@ -24,8 +24,8 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
           <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -35,15 +35,15 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">mytodo</a>
+            <a class="navbar-brand" href="#/">Movie & TV Demo</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+              <li class="active"><a href="#/">Movies</a></li>
+              <li ><a href="#/tvhome">TV Shows</a></li>
               <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -94,6 +94,11 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/controllers/tvhome.js"></script>
+        <script src="scripts/controllers/tvdetail.js"></script>
+        <script src="scripts/services/tvshows.js"></script>
+        <script src="scripts/directives/episodes.js"></script>
+        <script src="scripts/controllers/search.js"></script>
         <!-- endbuild -->
 </body>
 </html>

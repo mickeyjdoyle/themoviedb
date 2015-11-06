@@ -18,10 +18,19 @@ body {
   padding-right: 15px;
 }
 
+.navbar-fixed-top {
+  background: inherit;
+  border: 0;
+}
+
+.navbar-brand {
+  padding-left: 20px;
+}
+
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  background-color: rgba(0,0,0,.7);
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -62,8 +71,8 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  .navbar-nav {
+    float: right;
   }
 
   /* Remove the padding we set earlier */
@@ -73,14 +82,17 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
+}
 
   .feature-info {
     color: #AAA;
@@ -169,7 +181,7 @@ body {
     position: absolute;
     top:0;
     left:0;
-    background-image: url('/images/gradiant.png');
+    background-image: url('../images/gradiant.png');
     background-size: cover;
     height:100%;
     width: 100% !important;
@@ -193,4 +205,53 @@ body {
   .carousel-control {
     width: 5%;
   }
-}
+
+  .episode-list {
+    color: #aaa;
+  }
+
+  .episode-list img {
+    padding: 5px;
+  }
+
+  .seasons {
+    padding: 5px;
+    color: #fff;
+  }
+
+  .season-header {
+    padding-right: 0;
+  }
+
+  .season-info {
+    color: #aaa;
+  }
+
+  .btn-inverse {
+    color: #fff;
+    background-color: #000;
+  }
+
+  .btn-active, .btn-active:focus {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    outline: 0;
+  }
+
+  .btn-active:hover {
+    background-color: #d43f3a;
+    border-color: #d9534f;
+  }
+
+  .searchResults {
+    color: #eee;
+  }
+
+  .searchResults img {
+    width: 100%;
+  }
+
+  .searchItem {
+    padding-top: 10px;
+  }

@@ -1,0 +1,21 @@
+<section class="searchField text-center">
+  <form ng-submit="searchIt(searchTerm)" class="form-inline">
+    <input type="text" class="form-control" placeholder="Enter Search Term" ng-model="searchTerm">
+    <input type="submit" class="btn btn-primary" value="Search">
+  </form>
+</section>
+<section class="searchResults">
+  <div class="container">
+    <div class="row searchItem" ng-repeat="result in searchResults.results">
+      <div class="col-xs-2">
+        <img ng-src="http://image.tmdb.org/t/p/w300{{result.poster_path}}" ng-if="result.poster_path"/>
+        <img ng-src="http://image.tmdb.org/t/p/w300{{result.profile_path}}" ng-if="result.profile_path"/>
+      </div>
+      <div class="col-xs-10">
+        <h3 ng-if="result.title">{{result.title}}</h3>
+        <h3 ng-if="result.name">{{result.name}}</h3>
+        <p>{{result.overview}}</p>
+      </div>
+    </div>
+  </div>
+</section>

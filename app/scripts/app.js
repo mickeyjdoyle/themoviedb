@@ -35,6 +35,21 @@ angular
         controller: 'DetailCtrl',
         controllerAs: 'detail'
       })
+      .when('/tvhome', {
+        templateUrl: 'views/tvhome.html',
+        controller: 'TvhomeCtrl',
+        controllerAs: 'tvhome'
+      })
+      .when('/tvdetail/:showId', {
+        templateUrl: 'views/tvdetail.html',
+        controller: 'TvdetailCtrl',
+        controllerAs: 'tvdetail'
+      })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
+      })
       .otherwise({
         redirectTo: '/'
       });

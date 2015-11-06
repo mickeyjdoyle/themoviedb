@@ -17,7 +17,4 @@ describe('Controller: DetailCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(DetailCtrl.awesomeThings.length).toBe(3);
-  });
 });

@@ -5,25 +5,20 @@ function carousel() {
     replace: true,
     transclude: false,
     scope: {
-      images: "="
+      images: "=",
+      detailURL: "="
     },
     templateUrl: 'views/carousel-poster.html',
     link: function link(scope, element, attrs) {
       var container = angular.element(element);
       var carousel = container.children('.jcarousel');
 
+      console.log("--< " + container.innerWidth());
 
-      console.log("blag");
-
-      carousel.jcarousel({
-        wrap: 'circular',
-        start: 1,
-        scroll: 1
-      });
 
       scope.$watch(attrs.images, function () {
+        console.log("in watch event " + attrs.images.length);
         carousel.jcarousel('reload');
-
       });
 
       carousel
@@ -31,21 +26,29 @@ function carousel() {
           var inner = angular.element(data.element);
           var numItems = Math.floor(inner.width() / 154);
           var width = inner.innerWidth();
+          console.log("in reload event " + width + " - " + numItems + " - " + inner.width());
           carousel.jcarousel('items').css('width', Math.floor(width / numItems) + 'px');
+          container.children('.jcarousel-control-prev')
+            .jcarouselControl({
+              target: '-=' + numItems,
+              carousel: carousel
+            });
+
+          console.log("0000 - " + numItems);
+          container.children('.jcarousel-control-next')
+            .jcarouselControl({
+              target: '+=' + numItems,
+              carousel: carousel
+            });
         }
       );
 
-      container.children('.jcarousel-control-prev')
-        .jcarouselControl({
-          target: '-=1',
-          carousel: carousel
-        });
+      carousel.jcarousel({
+        wrap: 'circular',
+        start: 1,
+        scroll: 1
+      });
 
-      container.children('.jcarousel-control-next')
-        .jcarouselControl({
-          target: '+=1',
-          carousel: carousel
-        });
     }
   };
 }
@@ -56,7 +59,8 @@ function carouselBackdrop() {
     replace: true,
     transclude: false,
     scope: {
-      images: "="
+      images: "=",
+      detailURL: "="
     },
     templateUrl: 'views/carousel-backdrop.html',
     link: function link(scope, element, attrs) {
@@ -80,24 +84,24 @@ function carouselBackdrop() {
           var numItems = Math.floor(inner.width() / 300);
           var width = inner.innerWidth();
           carousel.jcarousel('items').css('width', Math.floor(width / numItems) + 'px');
-        }
+          container.children('.jcarousel-control-prev')
+            .jcarouselControl({
+              target: '-=' + numItems,
+              carousel: carousel
+            });
+
+          container.children('.jcarousel-control-next')
+            .jcarouselControl({
+              target: '+=' + numItems,
+              carousel: carousel
+            });
+          }
       );
 
-      container.children('.jcarousel-control-prev')
-        .jcarouselControl({
-          target: '-=1',
-          carousel: carousel
-        });
-
-      container.children('.jcarousel-control-next')
-        .jcarouselControl({
-          target: '+=1',
-          carousel: carousel
-        });
     }
   };
 }
-
+/*
 function carouselFeature() {
   return {
     restrict: 'E',
@@ -151,6 +155,7 @@ function carouselFeature() {
     }
   };
 }
+*/
 
 function carouselFeature2() {
   return {
@@ -162,11 +167,28 @@ function carouselFeature2() {
     },
     templateUrl: 'views/carousel-feature2.html',
 
+    link: function link() {
+      $("#carousel-example-generic").carousel();
+    }
+  };
+}
+
+function carouselDetailImage() {
+  return {
+    restrict: 'E',
+    replace: true,
+    transclude: false,
+    scope: {
+      images: "="
+    },
+    templateUrl: 'views/carousel-detail-image.html',
+
     link: function link(scope, element, attrs) {
       var container = angular.element(element);
-      var carousel = container.children('.carousel');
 
-      $("#carousel-example-generic").carousel();
+      scope.$watch(attrs.images, function () {
+        container.carousel();
+      });
     }
   };
 }
@@ -229,11 +251,13 @@ angular.module('mytodoApp')
         $scope.upcoming = data;
       });
 
+    $scope.baseDetailURL = '#/detail/';
     console.log("blag1");
   })
   .directive('carousel',carousel)
   .directive('carouselBackdrop',carouselBackdrop)
   .directive('carouselFeature',carouselFeature2)
+  .directive('carouselDetailImage',carouselDetailImage)
   .directive('starRating', starRating)
   .filter('formatTime', formatTime);
 

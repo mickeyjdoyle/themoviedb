@@ -2,7 +2,7 @@
   <div class="jcarousel">
     <ul>
       <li ng-repeat="img in images | filter:{poster_path: ''}">
-        <a href="#/detail/{{img.id}}">
+        <a href="{{detailURL}}{{img.id}}">
           <img ng-src="http://image.tmdb.org/t/p/w154{{img.poster_path}}"/>
         </a>
       </li>

@@ -1,0 +1,14 @@
+<div id="carousel-detail-image" class="carousel slide" data-ride="carousel">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <div class="item" ng-repeat="img in images | filter:{file_path: ''} | limitTo : 5" ng-class="{'active':!$index}">
+            <div>
+              <img ng-src="http://image.tmdb.org/t/p/original{{img.file_path}}"/>
+              <div class="gradiant-overlay"></div>
+            </div>
+    </div>
+  </div>
+
+</div>
