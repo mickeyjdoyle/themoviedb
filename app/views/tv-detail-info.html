@@ -1,0 +1,14 @@
+<div>
+  <h1>{{show.name}} </h1>
+
+  <p>{{show.overview}}</p>
+
+  <p>
+    <star-rating max="10" rating="show.vote_average"></star-rating>
+    ({{show.first_air_date | date : 'yyyy' }})
+  </p>
+  <div class="detail-cast">
+    <p>Creators: <span ng-repeat="creator in show.created_by"><span class="detail-comma" ng-if="$index != 0">, </span>{{creator.name}}</span> </p>
+    <p>Genres: <span ng-repeat="genre in show.genres"><span class="detail-comma" ng-if="$index != 0">, </span>{{genre.name}}</span> </p>
+  </div>
+</div>

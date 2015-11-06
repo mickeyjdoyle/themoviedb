@@ -1,0 +1,41 @@
+<div class="detail-header">
+  <div class="row">
+    <div class="col-sm-4  hidden-xs feature-info">
+      <tv-detail-info show="show"></tv-detail-info>
+    </div>
+    <div class="col-sm-8 col-xs-12 detail-image">
+      <carousel-detail-image images="show.images.backdrops"></carousel-detail-image>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12  hidden-sm hidden-md hidden-lg feature-info">
+      <tv-detail-info show="show"></tv-detail-info>
+    </div>
+  </div>
+
+  <div class="row seasons">
+    <div class="col-xs-1 btn-group btn-group-sm text-right season-header">
+      SEASON
+    </div>
+    <div class="col-xs-11 btn-group btn-group-sm">
+      <button ng-repeat="season in show.seasons | filter:{season_number:'!0'} | orderBy : '-season_number'" ng-click="getEpisodes(season.season_number)" class="btn btn-default btn-inverse" ng-class="{'btn-active' : seasonSelected == season.season_number}">{{season.season_number}}</button>
+    </div>
+  </div>
+  <!--
+  <div class="row">
+    <div class="col-xs-12">
+      <form name="seasonForm">
+        <label for="seasonSelect"> Season: </label>
+        <select name="seasonSelect" id="seasonSelect" ng-model="seasonSelected" ng-change="getEpisodes(seasonSelected)">
+          <option ng-repeat="season in show.seasons | filter:{season_number:'!0'} | orderBy : '-season_number'" value="{{season.season_number}}">{{season.season_number}}</option>
+        </select>
+      </form>
+    </div>
+  </div>
+  -->
+  <div class="row">
+    <div class="col-xs-12">
+      <episodes episodes="episodes"></episodes>
+    </div>
+  </div>
+</div>

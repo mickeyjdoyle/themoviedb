@@ -1,28 +1,30 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li ng-repeat="img in images | filter:{backdrop_path: ''} | limitTo : 5" ng-class="{'active':!$index}" data-target="#carousel-example-generic" data-slide-to="{{$index}}"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <ol class="carousel-indicators">
-      <li ng-repeat="img in images | filter:{backdrop_path: '' | limitTo : 5}" ng-class="{'active':!$index}" data-target="#myCarousel" data-slide-to="{{$index}}"></li>
-    </ol>
 
-    <div class="item" ng-repeat="img in images | filter:{backdrop_path: '' | limitTo : 5}" ng-class="{'active':!$index}">
+    <div class="item" ng-repeat="img in images | filter:{backdrop_path: ''} | limitTo : 5" ng-class="{'active':!$index}">
         <div class="detail-header">
           <div class="row">
-            <div class="col-xs-5 feature-info">
-              <h1>{{img.title}} ({{img.release_date | date : 'yyyy' }})</h1>
+            <div class="col-sm-5 hidden-xs feature-info">
+              <h1 ng-if="img.title">{{img.title}} ({{img.release_date | date : 'yyyy' }})</h1>
+              <h1 ng-if="img.name">{{img.name}}</h1>
               <p>{{img.overview}}</p>
               <star-rating max="10" rating="img.vote_average"></star-rating>
             </div>
-            <div class="col-xs-7 detail-image">
+            <div class="col-sm-7 col-xs-12 detail-image">
               <img ng-src="http://image.tmdb.org/t/p/original{{img.backdrop_path}}"/>
               <div class="gradiant-overlay"></div>
+            </div>
+            <div class="col-xs-12 hidden-sm hidden-md hidden-lg feature-info">
+              <h1 ng-if="img.title">{{img.title}} ({{img.release_date | date : 'yyyy' }})</h1>
+              <h1 ng-if="img.name">{{img.name}}</h1>
+              <p>{{img.overview}}</p>
+              <star-rating max="10" rating="img.vote_average"></star-rating>
             </div>
           </div>
         </div>

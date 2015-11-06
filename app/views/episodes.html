@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row season-info">
+    <div class="col-xs-10">
+      <h1>{{episodes.name}} ({{episodes.air_date | date : 'yyyy' }})</h1>
+      <p>{{episodes.overview}}</p>
+    </div>
+    <div class="col-xs-2">
+      <img ng-src="http://image.tmdb.org/t/p/w300{{episodes.poster_path}}" ng-if="episodes.poster_path"/>
+    </div>
+  </div>
+
+  <div ng-repeat="episode in episodes.episodes| orderBy : '-episode_number'" class="episode-list">
+    <div class="row">
+      <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+        <h3>Episode {{episode.episode_number}}</h3>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <img ng-src="http://image.tmdb.org/t/p/w300{{episode.still_path}}" ng-if="episode.still_path"/>
+      </div>
+      <div class="col-sm-7 col-xs-12">
+        <h3 class="hidden-xs">Episode {{episode.episode_number}}</h3>
+        <h1>{{episode.name}}</h1>
+        <p>Origionally Aired on {{episode.air_date}}</p>
+        <p>{{episode.overview}}</p>
+      </div>
+    </div>
+  </div>
+</div>

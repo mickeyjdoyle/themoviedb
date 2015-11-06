@@ -17,4 +17,6 @@ angular.module('mytodoApp')
       .success(function(data) {
         $scope.topRated = data;
       });
+
+    $scope.baseDetailURL = '#/tvdetail/';
   });

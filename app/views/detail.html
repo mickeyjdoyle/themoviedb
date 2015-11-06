@@ -1,36 +1,30 @@
 <div class="detail-header">
   <div class="row">
-    <div class="col-xs-4 feature-info">
-      <h1>{{movie.title}} </h1>
-
-      <p>{{movie.overview}}</p>
-
-      <p>
-        <star-rating max="10" rating="movie.vote_average"></star-rating>
-        ({{movie.release_date | date : 'yyyy' }})
-        <span class="detail-cert">{{certification}}</span>
-        {{movie.runtime | formatTime}}
-      </p>
-      <div class="detail-cast">
-        <p>Staring: <span ng-repeat="cast in movie.credits.cast | filter: lessThan('order',3)"><span class="detail-comma" ng-if="$index != 0">, </span>{{cast.name}}</span> </p>
-        <p>Director: <span ng-repeat="cast in movie.credits.crew | filter: {job:'Director'} : true"><span class="detail-comma" ng-if="$index != 0">, </span>{{cast.name}}</span> </p>
-        <p>Genres: <span ng-repeat="genre in movie.genres"><span class="detail-comma" ng-if="$index != 0">, </span>{{genre.name}}</span> </p>
-      </div>
+    <div class="col-sm-4  hidden-xs feature-info">
+      <detail-info movie="movie"></detail-info>
       <!--
       <div class="detail-poster">
         <img ng-src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}"/>
       </div>
       -->
     </div>
-    <div class="col-xs-8 detail-image">
+    <div class="col-sm-8 col-xs-12 detail-image">
+      <carousel-detail-image images="movie.images.backdrops"></carousel-detail-image>
+      <!--
       <img ng-src="http://image.tmdb.org/t/p/original{{movie.backdrop_path}}"/>
       <div class="gradiant-overlay"></div>
+      -->
     </div>
+  </div>
+    <div class="row">
+      <div class="col-xs-12  hidden-sm hidden-md hidden-lg feature-info">
+        <detail-info movie="movie"></detail-info>
+      </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <h2>SIMILAR TITLES</h2>
-    <carousel-backdrop images="similar.results"></carousel-backdrop>
+    <carousel-backdrop images="similar.results" detail-u-r-l="baseDetailURL"></carousel-backdrop>
   </div>
 </div>

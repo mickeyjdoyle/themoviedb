@@ -10,7 +10,7 @@
 angular.module('mytodoApp')
   .controller('DetailCtrl', function ($scope, $http, $routeParams) {
     console.log("id:" + $routeParams.movieId);
-    $http.get('http://api.themoviedb.org/3/movie/' + $routeParams.movieId + '?api_key=1f23f7d03cac0a69efe9d8ce137fb9ce&append_to_response=credits')
+    $http.get('http://api.themoviedb.org/3/movie/' + $routeParams.movieId + '?api_key=1f23f7d03cac0a69efe9d8ce137fb9ce&append_to_response=credits,images')
       .success(function(data) {
         $scope.movie = data;
       });
@@ -41,4 +41,11 @@ angular.module('mytodoApp')
       };
     };
 
+    $scope.baseDetailURL = '#/detail/';
+  })
+  .directive('detailInfo',function () {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/detail-info.html',
+    };
   });
